@@ -35,12 +35,12 @@ body {
 
 
 
-
-
-
-
+@import "variables";
+@import "reset";
+@import "header";
+@import "home-pages";
 @import "revolutionary-section.scss";
-
+@import "people-talking";
 
 
 

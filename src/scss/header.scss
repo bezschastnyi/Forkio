@@ -1,0 +1,209 @@
+.header{
+  width: 100vw;
+  //max-width: 1380px;
+  margin: auto;
+
+    &__wrapper {
+      width: 100%;
+      min-width: 320px;
+      background-color: #27262a;
+      @media (min-width: 992px) {
+        background-color: black;
+      }
+    }
+}
+
+.header__navbar {
+  max-width: 1190px;
+
+  position: relative;
+  padding: 31px 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (min-width: 992px) {
+    background-color: black;
+  }
+
+  &--icon  {
+    display: flex;
+    flex-direction: row;
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(17%) saturate(205%) hue-rotate(42deg) brightness(116%) contrast(100%);
+    }
+  }
+
+  &--iconName {
+    @extend %fontLato;
+    display: none;
+
+    @media (min-width: 480px) {
+      display: inline;
+      margin: auto 17px;
+      font-size: 24px;
+      font-weight: 700;
+      color: $mainColor;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  &--button {
+    justify-self: center;
+    width: 145px;
+    height: 37px;
+    @extend %fontMontserrat;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    outline: none;
+    transition: color 0.3s linear;
+    color: #fff;
+    background-color: #8d81ac;
+    cursor: pointer;
+    &:hover {
+      background-color: white;
+      color: #8d81ac;
+    }
+
+    @media (min-width: 480px) {
+      position: absolute;
+      right: 4%;
+    }
+    @media (min-width: 992px) {
+      position: absolute;
+      right: 4%;
+    }
+  }
+
+  .burger {
+    //justify-self: end;
+    margin-right: 6px;
+    height: 41px;
+    width: 41px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    flex-direction: column;
+
+
+    &__close{
+      display: none;
+    }
+
+    &__touch {
+      cursor: pointer;
+      opacity: 0;
+      width: inherit;
+      height: inherit;
+      z-index: 1;
+      margin: 0;
+      position: absolute;
+      @media(min-width:480px){
+        display:none;
+      }
+    }
+
+    &__item {
+      margin-right: 5px;
+      width: 26px;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 3px;
+      transition: width 0.4s linear;
+      @media (min-width: 480px) {
+        width: 0;
+        height: 0;
+      }
+      &:first-of-type {
+        width: 20px;
+
+      }
+    }
+
+    & input:checked ~ .burger__item {
+      display:none;
+    }
+
+    & input:checked ~ .burger__close {
+      display: block;
+    }
+
+    & input:checked ~ .menu {
+      left: 50%;
+      display: inline-block;
+      transition: left 1s linear;
+      transform: translate(-50%, 0);
+      z-index: 1;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 150%;
+    background-color: #333333;
+    width: 290px;
+    @media (min-width: 480px) {
+      left: 50%;
+      display: flex;
+      gap: 40px;
+      transition: left 1s linear;
+      transform: translate(-50%, 0);
+      z-index: 1;
+      width: 481px;
+      top: 75%;
+      background-color: #27262a;
+    }
+    @media (min-width: 992px) {
+      gap: 47px;
+      width: 497px;
+      left: 56%;
+      top: 40%;
+      background-color: black;
+    }
+
+    &__item {
+      display: block;
+      color: white;
+      @extend %fontMontserrat;
+      font-size: 26px;
+      line-height: 3.35;
+      border-bottom: 2px solid #3b3b3b;
+      padding-left: 33px;
+      position: relative;
+      &:hover, .selectItem {
+        color: $mainColor;
+      }
+
+      &:hover:before, .selectItem:before {
+        content: "";
+        width: 8px;
+        height: 53px;
+        background-color: $mainColor;
+        position: absolute;
+        top: 53%;
+        left: 0;
+        transform: translate(0, -50%);
+        @media (min-width: 480px) {
+          display: none;
+        }
+      }
+      @media (min-width: 480px) {
+        font-size: 16px;
+        padding: 0;
+        line-height: 18px;
+        color: $mainColor;
+        border-bottom: none;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
+  }
+}
